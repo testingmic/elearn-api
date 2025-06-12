@@ -57,27 +57,15 @@ Options All -Indexes
 # ----------------------------------------------------------------------
 # File Restrictions
 # ----------------------------------------------------------------------
-<Files ~ ".env|.gitignore|composer|php.ini|spark|heatmap_db">
+<Files ~ ".env|.gitignore|composer|php.ini|spark|learn_db">
     Order allow,deny
     Deny from all
 </Files>
 
-<FilesMatch ".(env|htaccess|htpasswd|ini|psd|log|sh|spark|heatmap_db)$">
+<FilesMatch ".(env|htaccess|htpasswd|ini|psd|log|sh|spark|learn_db)$">
 	Order Allow,Deny
 	Deny from all
 </FilesMatch>
-
-# ----------------------------------------------------------------------
-# Allow CSV file downloads in the tmp/ directory
-# ----------------------------------------------------------------------
-<Directory "/tmp">
-    <FilesMatch "\.csv$">
-        Order Allow,Deny
-        Allow from all
-        ForceType application/octet-stream
-        Header set Content-Disposition attachment
-    </FilesMatch>
-</Directory>
 
 # Disable server signature
 ServerSignature Off
