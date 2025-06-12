@@ -12,7 +12,7 @@ class Throttle implements FilterInterface {
         
         $throttler = Services::throttler();
 
-        if($throttler->check(md5($request->getIPAddress()), 1000, MINUTE) === false) {
+        if($throttler->check(md5($request->getIPAddress()), 2000, MINUTE) === false) {
 
             Services::response()->setHeader('X-RateLimit-Limit', 100);
             Services::response()->setHeader('Content-Type', 'application/json');
